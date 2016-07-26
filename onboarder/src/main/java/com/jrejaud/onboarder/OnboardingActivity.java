@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -62,7 +63,10 @@ public class OnboardingActivity extends AppCompatActivity implements OnboardingF
         setContentView(R.layout.activity_onboarding);
 
         //Try to hide the support action bar
-        getSupportActionBar().hide();
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            getSupportActionBar().hide();
+        }
 
         //Extract Data from the Bundle
         Bundle bundle = getIntent().getExtras();
